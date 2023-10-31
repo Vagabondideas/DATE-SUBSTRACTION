@@ -8,5 +8,24 @@
     <body>
         <h2>DATES SUBSTRACTION</h2>
         <p>But let's do this later</p>
+
+        <input type="date" id="d1" />
+        <input type="date" id="d2" />
+        <button onclick="calcDays()">calcDays</button>
+        <p id="result">Plae holder</p>
+
+        <script>
+            function calcDays() {
+                var d1 = document.getElementById("d1").value;
+                console.log("d1 value" + d1);
+                var d2 = document.getElementById("d2").value;
+                const dayOne = new Date(d1);
+                const dayTwo = new Date(d2);
+                const time = Math.abs(dayTwo - dayOne);
+                const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+                console.log("days = " + days);
+                document.getElementById("result").innerHTML = days;
+            }
+        </script>
     </body>
 </html>
