@@ -3,18 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+        />
         <title>Dates v1</title>
     </head>
     <body>
         <h2>DATES SUBSTRACTION</h2>
-        <p>But let's do this later</p>
 
-        <input type="date" id="d1" />
-        <input type="date" id="d2" />
+        <input type="date" id="d1" placeholder="Start Date" />
+        <input type="date" id="d2" placeholder="Return Date" />
         <button onclick="calcDays()">calcDays</button>
         <p id="result">Plae holder</p>
 
         <script>
+            // WORKING
+
             function calcDays() {
                 var d1 = document.getElementById("d1").value;
                 console.log("d1 value" + d1);
@@ -26,6 +31,22 @@
                 console.log("days = " + days);
                 document.getElementById("result").innerHTML = days;
             }
+        </script>
+
+        <!-- USING flatpickr -->
+        <!-- https://www.youtube.com/watch?v=h7KpTZaYM34 -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <script>
+            config = {
+                enableTime: true,
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "l, M j, Y ",
+            };
+
+            flatpickr("#d1", config);
+            flatpickr("#d2", config);
         </script>
     </body>
 </html>
